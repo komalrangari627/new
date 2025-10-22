@@ -1,7 +1,7 @@
 //import { languages } from "../data/Languages.js"
-import { languages } from "../models/languageSchema.js"
+import techModel from "../models/languageSchema.js";
 
-let languages = []
+let languages = [];
 
 async function fetchInitialLanguages() {
     try {

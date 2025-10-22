@@ -8,7 +8,7 @@ dotenv.config({ path: "./config.env" })
 
 const app = express()
 
-let port = process.env.PORT || 5005
+let port = process.env.PORT || 5010
 
 app.use(express.urlencoded({ extended: true }))
 

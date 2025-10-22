@@ -1,0 +1,24 @@
+import mongoose from "mongoose";
+
+const techSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    difficulty: {
+        type: String,
+        required: true
+    },
+    duration: {
+        type: String,
+        required: true
+    },
+    scope: {
+        type: String,
+        required: true
+    }
+});
+
+const techModel = mongoose.models.Tech || mongoose.model("Tech", techSchema);
+
+export default techModel;

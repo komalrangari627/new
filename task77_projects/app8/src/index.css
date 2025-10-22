@@ -1,0 +1,7 @@
+:root{
+  font-style: italic;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

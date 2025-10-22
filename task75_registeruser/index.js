@@ -1,37 +1,16 @@
-import express from "express"
-import dotenv from "dotenv"
-import "./database/conn.js"
-import { router } from "../task75_registeruser/routers/router.js"
-import mongoose from "mongoose"
-import { userRouter } from "./routers/userRouter.js"
+// task75_registeruser/index.js
+import express from "express";
+import dotenv from "dotenv";
+import { connectDB } from "./database/connection.js";
+import mongoose from "./database/connection.js";   // same instance
 
-dotenv.config({ path: "./config.env" })
 
-const app = express()
 
-let port = process.env.PORT || 5005
+dotenv.config({ path: "./config.env" });
 
-app.use(express.urlencoded({ extended: true }))
+const app = express();
+const PORT = process.env.PORT || 5011;
 
-app.use(express.json())
-
-app.use(express.static("public"))
-
-app.get('/', (req, res) => { res.redirect("/languages/api/get-details") })
-
-app.use("/languages/api", router)
-
-app.use("/user/api", userRouter)
-
-app.use((req, res) => {
-    console.log("someone is trying to access a 404 route !")
-    res.status(404).json({ message: "content not found !" })
-})
-
-app.listen(port, () => {
-    console.log(`server is running on port ${port} !`)
-})
-
-// [GET/POST/PUT/PATCH/DELET ] /endpoint/
-
-// file uploads, mailer
+connectDB();
+app.use(express.json());
+app.listen(PORT, () => console.log(`server is running on port ${PORT} !`));

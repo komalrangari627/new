@@ -1,5 +1,4 @@
-
-import { userModel } from "../models/userSchema.js";
+import  techModel from "../models/techSchema.js";
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 
@@ -15,7 +14,8 @@ let handleRegisterUser = async (req, res) => {
 
         if (userExists) throw ("email/phone already registred please enter a different email/phone or please head to login.")
 
-        let newUser = new userModel({ name, phone, email, address, password })
+        let hashedPassword = await bcrypt.hash(password, 10);
+let newUser = new userModel({ name, phone, email, address, password: hashedPassword });
 
         await newUser.save()
 

@@ -1,37 +1,17 @@
-import express from "express"
-import dotenv from "dotenv"
-import "./database/conn.js"
-import { router } from "../task75_registeruser/routers/router.js"
-import mongoose from "mongoose"
-import { userRouter } from "./routers/userRouter.js"
+import express from "express";
+import dotenv from "dotenv";
+import connectDB from "./database/conn.js";
 
-dotenv.config({ path: "./config.env" })
+dotenv.config({ path: "config.env" });
 
-const app = express()
+const app = express();
+const port = process.env.PORT || 5012;
 
-let port = process.env.PORT || 5005
+connectDB();
 
-app.use(express.urlencoded({ extended: true }))
-
-app.use(express.json())
-
-app.use(express.static("public"))
-
-app.get('/', (req, res) => { res.redirect("/languages/api/get-details") })
-
-app.use("/languages/api", router)
-
-app.use("/user/api", userRouter)
-
-app.use((req, res) => {
-    console.log("someone is trying to access a 404 route !")
-    res.status(404).json({ message: "content not found !" })
-})
+app.use(express.json());
+app.get("/", (req, res) => res.send("Server Running 🚀"));
 
 app.listen(port, () => {
-    console.log(`server is running on port ${port} !`)
-})
-
-// [GET/POST/PUT/PATCH/DELET ] /endpoint/
-
-// file uploads, mailer
+  console.log(`Server is running on port ${port} !`);
+});

@@ -1,5 +1,5 @@
 // import { languages } from "../data/Languages.js"
-import { techModel } from "../models/techSchema.js"
+import { Tech as techModel } from "../models/Tech.js";
 
 let languages = []
 
@@ -142,7 +142,7 @@ const getRandomLanguage = (req, res) => {
     res.status(200).json({ message: "random language you were requesting is ", result })
 }
 
-const getAllLanaguages = async (req, res) => {
+const getAllLanguages = async (req, res) => {
     try {
 
         // fetch all languages
@@ -179,7 +179,7 @@ const getLanguageBasedOnId = (req, res) => {
     }
 }
 
-const postAddLanaguage = async (req, res) => {
+const postAddLanguage = async (req, res) => {
     try {
 
         if (!req.user) throw ("trying to add a language without login ! Please login first.")
@@ -207,4 +207,4 @@ const postAddLanaguage = async (req, res) => {
 
 // insert, update, delete
 
-export { getDetails, getFilterData, getRandomLanguage, getAllLanaguages, getLanguageBasedOnId, postAddLanaguage }
+export { getDetails, getFilterData, getRandomLanguage, getAllLanguages, getLanguageBasedOnId, postAddLanguage }

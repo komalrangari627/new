@@ -1,53 +1,15 @@
 import mongoose from "mongoose";
-import bcrypt from "bcrypt"
 
-let usersSchema = mongoose.Schema({
-    name: {
-        type: String,
-        require: true
-    },
-    phone: {
-        type: String,
-        require: true
-    },
-    email: {
-        type: String,
-        require: true
-    },
-    address: {
-        type: String,
-        require: true
-    },
-    password: {
-        type: String,
-        require: true
-    },
-    registeredAt: {
-        type: Object,
-        require: true,
-        default: Date.now
-    },
-    addedLanguges: {
-        type: Array,
-        default: []
-    }
-})
+// Define schema first
+const techSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    type: { type: String },
+    language: { type: String },
+    createdAt: { type: Date, default: Date.now }
+});
 
-usersSchema.pre("save", async function () {
-    try {
-        console.log('pre method called !')
+// Create model
+const techModel = mongoose.model("Tech", techSchema);
 
-        this.registeredAt = "D:" + new Date().toLocaleDateString() + "T:" + new Date().toLocaleTimeString()
-
-        let hash = await bcrypt.hash(this.password, 12)
-
-        this.password = hash
-
-    } catch (err) {
-        console.log("error in pre save method of user schema : ", err)
-    }
-})
-
-let userModel = new mongoose.model("user", usersSchema)
-
-export { userModel }
+// Default export
+export default techModel;

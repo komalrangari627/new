@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken"
-import { userModel } from "../models/userSchema.js"
+import  techModel from "../models/techSchema.js";
 
 let checkAdmin = async (req, res, next) => {
     try {

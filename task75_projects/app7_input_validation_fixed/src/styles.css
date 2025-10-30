@@ -1,0 +1,13 @@
+:root{--card:#0b1222}
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,Segoe UI,Helvetica,Arial; display:flex;align-items:center;justify-content:center;min-height:100vh;background:#f3f4f6;margin:0}
+.wrap{width:100%;max-width:520px;padding:24px}
+.card{background:white;border-radius:12px;padding:28px;box-shadow:0 10px 30px rgba(2,6,23,0.08)}
+h1{margin:0 0 16px;font-size:20px}
+.form{display:flex;flex-direction:column;gap:12px}
+label{display:flex;flex-direction:column;font-size:14px;color:#111}
+input{padding:10px;border:1px solid #e5e7eb;border-radius:8px;margin-top:6px}
+.err{color:#b91c1c;font-size:13px;margin-top:6px}
+.btn{margin-top:8px;padding:10px 14px;background:#2563eb;color:white;border:none;border-radius:8px;cursor:pointer}
+.btn:disabled{opacity:.6;cursor:not-allowed}
+.hint{margin-top:10px;color:#6b7280;font-size:13px}

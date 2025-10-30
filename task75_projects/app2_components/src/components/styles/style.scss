@@ -1,0 +1,20 @@
+#comp1 {
+    color: orange;
+    background-color: beige;
+    >ul {
+        padding: 1rem !important;
+        >li {
+            background-color: white;
+            +li {
+                color: green;
+                background-color: black;
+                &:hover{
+                    color: white;
+                }
+                &::after{
+                    content: "some data";
+                }
+            }
+        }
+    }
+}

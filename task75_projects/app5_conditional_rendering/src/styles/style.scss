@@ -1,0 +1,47 @@
+.language-grid {
+  padding: 2rem;
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+
+  .grid-item {
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .scope {
+      margin: 0.5rem 0;
+    }
+
+    .duration, .difficulties {
+      margin: 0.25rem 0;
+    }
+  }
+}
+
+.add-language-form input {
+  padding: 0.5rem;
+  border-radius: 8px;
+  width: 250px;
+  outline: none;
+}
+
+.add-language-form button {
+  cursor: pointer;
+}

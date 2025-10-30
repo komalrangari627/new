@@ -1,0 +1,238 @@
+/* === GLOBAL === */
+body {
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  background: #f5f6fa;
+  color: #2f3640;
+  margin: 0;
+  padding: 0;
+}
+
+/* === ADD LANGUAGE (Smaller Centered Card Form) === */
+.add-language-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.add-language-form {
+  background: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+  transition: 0.3s ease all;
+
+  &:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  h1 {
+    color: #273c75;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+  }
+
+  input,
+  select {
+    padding: 0.7rem 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+
+    &:focus {
+      border-color: #40739e;
+      box-shadow: 0 0 0 2px rgba(64, 115, 158, 0.2);
+      outline: none;
+    }
+  }
+
+  button {
+    padding: 0.8rem;
+    background-color: #44bd32;
+    color: white;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background-color: #2f9e24;
+    }
+  }
+}
+
+/* === LANGUAGE GRID === */
+.language-grid {
+  padding: 1.5rem;
+  text-align: center;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: #192a56;
+  }
+
+  .grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+
+  .grid-item {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 1.2rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    border: 3px solid transparent;
+    width: 250px;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #273c75;
+      margin-bottom: 0.6rem;
+      text-align: center;
+    }
+
+    /* 🏷 Scope Tags */
+    .scope {
+      margin-bottom: 0.5rem;
+
+      span {
+        font-weight: 600;
+        color: #353b48;
+      }
+
+      .scope-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+        margin-top: 0.3rem;
+        justify-content: center;
+
+        .scope-tag {
+          background: #dcdde1;
+          padding: 0.25rem 0.5rem;
+          border-radius: 5px;
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    /* 🔢 Duration + Difficulties (tight spacing) */
+    .duration,
+    .difficulties {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.2rem;
+      margin-top: 0.2rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* 🎨 Difficulty badges */
+    .difficulty-badge {
+      padding: 0.25rem 0.5rem;
+      border-radius: 8px;
+      color: white;
+      font-weight: 600;
+      text-transform: capitalize;
+      font-size: 0.8rem;
+
+      &.easy {
+        background-color: #44bd32;
+      }
+
+      &.medium {
+        background-color: #fbc531;
+        color: #2f3640;
+      }
+
+      &.hard {
+        background-color: #e84118;
+      }
+    }
+
+    /* 🔥 Border colors */
+    &.border-easy {
+      border-color: #44bd32;
+    }
+
+    &.border-medium {
+      border-color: #fbc531;
+    }
+
+    &.border-hard {
+      border-color: #e84118;
+    }
+  }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .add-language-container {
+    padding: 1rem;
+  }
+
+  .add-language-form {
+    max-width: 90%;
+    padding: 1rem 1.2rem;
+  }
+
+  .language-grid {
+    padding: 1rem;
+
+    .grid-item {
+      width: 100%;
+    }
+  }
+}
+
+/* 🌙 Modal fade animations */
+.modal-overlay {
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.modal-overlay.fade-in {
+  opacity: 1;
+}
+
+.modal-overlay.fade-out {
+  opacity: 0;
+}
+
+.modal-content {
+  transform: scale(0.95);
+  transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+}
+
+.modal-overlay.fade-in .modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.modal-overlay.fade-out .modal-content {
+  transform: scale(0.95);
+  opacity: 0;
+}
